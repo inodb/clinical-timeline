@@ -1,5 +1,5 @@
 // vim: ts=2 sw=2
-window.clinicalTimeline = (function(){
+clinicalTimeline = (function(){
   var allData,
       colorCycle = d3.scale.category20(),
       margin = {left: 200, right:30, top: 15, bottom:0},
