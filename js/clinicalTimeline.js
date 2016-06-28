@@ -1,5 +1,7 @@
 // vim: ts=2 sw=2
-clinicalTimeline = (function(){
+var d3 = require('d3');
+
+var clinicalTimeline = (function(){
   var allData,
       colorCycle = d3.scale.category20(),
       margin = {left: 200, right:30, top: 15, bottom:0},
@@ -28,7 +30,7 @@ clinicalTimeline = (function(){
 
   function getTrack(data, track) {
     return data.filter(function(x) {
-      return $.trim(x.label) === $.trim(track);
+      return x.label.trim() === track.trim();
     })[0];
   }
 
@@ -1297,5 +1299,8 @@ clinicalTimeline = (function(){
     return timeline;
   };
 
+  timeline.getTrack = getTrack;
+
   return timeline;
 })();
+module.exports = clinicalTimeline;
